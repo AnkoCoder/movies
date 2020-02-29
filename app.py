@@ -19,3 +19,10 @@ def hello():
             }
         )
     return render_template("index.html", theatres=theatres)
+
+
+@app.route('/cinema/<cinema_id>')
+def show_post(cinema_id):
+    with open('theatres.json') as f:
+        theatres = json.load(f)
+    return theatres[cinema_id]
