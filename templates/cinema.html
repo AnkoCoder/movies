@@ -1,0 +1,11 @@
+<hlml>
+    <h1>{{ theatre }}</h1>
+    <table border="1"> 
+            {% for movie in movies %}
+            <tr>
+                <td>{{ movie.name }}</td>
+                <td>{{ movie.time }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+</hlml>

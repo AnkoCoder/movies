@@ -3,6 +3,7 @@ import json
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello():
     with open('db.json') as f:
@@ -23,6 +24,10 @@ def hello():
 
 @app.route('/cinema/<cinema_id>')
 def show_post(cinema_id):
+    with open('db.json') as f:
+        movies = json.load(f)
     with open('theatres.json') as f:
         theatres = json.load(f)
-    return theatres[cinema_id]
+        theatre = theatres[cinema_id]
+        movies = [movie for movie in movies if movie["theatre"] == theatre]
+    return render_template("cinema.html", theatre=theatre, movies=movies)
