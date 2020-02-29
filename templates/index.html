@@ -1,8 +1,8 @@
 <hlml>
-    {% for theatre, movies in theatres.items() %}
-    <h1>{{ theatre }}</h1>
+    {% for name, theatre in schedule.items() %}
+    <h1><a href="/cinema/{{ theatre.id }}">{{ name }}</a></h1>
     <table border="1"> 
-            {% for movie in movies %}
+            {% for movie in theatre.movies %}
             <tr>
                 <td>{{ movie.name }}</td>
                 <td>{{ movie.time }}</td>
